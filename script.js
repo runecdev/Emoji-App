@@ -13,6 +13,7 @@ const storeData = async () => {
         const strData = JSON.stringify(data);
         localStorage.setItem("emojis", strData);
         getBtn.disabled = false;
+        showEmoji();
     } catch {
         alert("Please Refresh the Page.");
     }
