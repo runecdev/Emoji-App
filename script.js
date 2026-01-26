@@ -54,8 +54,6 @@ copyBtn.addEventListener("click", () => {
         temp = JSON.parse(temp);
         let temp1 = emoji[randNum];
         history = [...temp, temp1];
-        history = new Set(history);
-        history = [...history];
         history = JSON.stringify(history);
         localStorage.setItem("history", history);
     } else {
@@ -63,6 +61,7 @@ copyBtn.addEventListener("click", () => {
         history = JSON.stringify(history);
         localStorage.setItem("history", history);
     }
+    showHistory();
 });
 
 const showEmojiList = (emoji, name) => {
@@ -78,19 +77,20 @@ const showEmojiList = (emoji, name) => {
     div.appendChild(span);
     div.appendChild(span1);
     div.appendChild(btn);
-    historyWrapper.appendChild(div);
+    historyWrapper.prepend(div);
 };
 
 const showHistory = () => {
     let historyEmoji = localStorage.getItem("history");
     historyEmoji = JSON.parse(historyEmoji);
-    console.log(historyEmoji);
-    historyEmoji.forEach((ele) => {
-      if(ele){
-      showEmojiList(ele.character, ele.unicodeName)
-      }
-      else {
-        historyEmoji.pop(ele)
-      }
-    })
+    historyEmoji = new Set(historyEmoji);
+    historyEmoji = [...historyEmoji];
+    historyWrapper.innerText = "";
+    historyEmoji.forEach(ele => {
+        if (ele) {
+            showEmojiList(ele.character, ele.unicodeName);
+        } else {
+            historyEmoji.pop(ele);
+        }
+    });
 };
