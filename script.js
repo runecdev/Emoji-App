@@ -11,6 +11,7 @@ let emoji = localStorage.getItem("emoji");
 emoji = JSON.parse(emoji) || false;
 let history = [];
 
+
 const storeEmoji = async () => {
     try {
         let res = await fetch(url);
@@ -24,6 +25,9 @@ const storeEmoji = async () => {
     } catch {
         emojiName.innerText = "SOMETHING WENT WRONG! PLEASE REFRESH THE PAGE.";
     }
+};
+const copyToClip = ele => {
+    navigator.clipboard.writeText(ele);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,7 +52,7 @@ getBtn.addEventListener("click", () => {
     }
 });
 copyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(emojiBox.innerText);
+    copyToClip(emojiBox.innerText)
     if (localStorage.getItem("history")) {
         let temp = localStorage.getItem("history");
         temp = JSON.parse(temp);
@@ -72,6 +76,8 @@ const showEmojiList = (emoji, name) => {
     div.classList.add("entry-con");
     span.classList.add("copied-emoji");
     span1.classList.add("copied-name");
+    btn.classList.add("copied-btn");
+    btn.innerText = "Copy";
     span.innerText = emoji;
     span1.innerText = name;
     div.appendChild(span);

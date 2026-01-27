@@ -40,7 +40,8 @@ span {
     font-style: italic;
 }
 #get-btn,
-#copy-btn {
+#copy-btn, 
+.copied-btn{
     border: none;
     padding: 12px;
     border-radius: 15px;
@@ -63,4 +64,5 @@ button:active {
 .entry-con {
     background: #000;
     color: white;
+    margin: 3px;
 }
