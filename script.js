@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+
 getBtn.addEventListener("click", () => {
     randNum = Math.floor(Math.random() * 1859);
     if (emoji) {
@@ -61,7 +63,7 @@ copyBtn.addEventListener("click", () => {
         history = JSON.stringify(history);
         localStorage.setItem("history", history);
     } else {
-        history.push(emoji[randNum]);
+        history = [emoji[randNum]];
         history = JSON.stringify(history);
         localStorage.setItem("history", history);
     }
