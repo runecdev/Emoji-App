@@ -39,14 +39,13 @@ span {
 .emoji-name {
     font-style: italic;
 }
-#get-btn,
-#copy-btn, 
-.copied-btn{
+button{
     border: none;
     padding: 12px;
     border-radius: 15px;
-    box-shadow: 1px 2px 5px #581d00;
+    border: 1px solid black;
     background: #fab27f;
+    
 }
 #get-btn {
     width: 60%;
@@ -60,9 +59,4 @@ span {
 }
 button:active {
     transform: scale(1.1);
-}
-.entry-con {
-    background: #000;
-    color: white;
-    margin: 3px;
 }

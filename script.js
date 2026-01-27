@@ -6,6 +6,7 @@ const emojiBox = document.querySelector(".emoji-box");
 const getBtn = document.querySelector("#get-btn");
 const copyBtn = document.querySelector("#copy-btn");
 const historyWrapper = document.querySelector(".history-wrapper");
+const clr = document.querySelector(".clr");
 let randNum;
 let emoji = localStorage.getItem("emoji");
 emoji = JSON.parse(emoji) || false;
@@ -104,3 +105,8 @@ const showHistory = () => {
         }
     });
 };
+
+clr.addEventListener("click", () => {
+    localStorage.removeItem("history");
+    showHistory();
+});
