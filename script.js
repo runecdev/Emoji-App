@@ -11,7 +11,6 @@ let emoji = localStorage.getItem("emoji");
 emoji = JSON.parse(emoji) || false;
 let history = [];
 
-
 const storeEmoji = async () => {
     try {
         let res = await fetch(url);
@@ -52,7 +51,7 @@ getBtn.addEventListener("click", () => {
     }
 });
 copyBtn.addEventListener("click", () => {
-    copyToClip(emojiBox.innerText)
+    copyToClip(emojiBox.innerText);
     if (localStorage.getItem("history")) {
         let temp = localStorage.getItem("history");
         temp = JSON.parse(temp);
@@ -84,6 +83,11 @@ const showEmojiList = (emoji, name) => {
     div.appendChild(span1);
     div.appendChild(btn);
     historyWrapper.prepend(div);
+    btn.addEventListener("click", e => {
+        let entryCon = e.target.closest(".entry-con");
+        let emojiC = entryCon.querySelector(".copied-emoji");
+        copyToClip(emojiC.innerText);
+    });
 };
 
 const showHistory = () => {
