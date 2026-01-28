@@ -13,10 +13,12 @@
     font-size: 1.2rem;
     text-transform: uppercase;
     text-align: center;
+    margin: auto 3px;
 }
 .copied-btn {
     height: 2.5rem;
     box-shadow: none;
     text-align: center;
     border: 1px solid black;
+    margin: auto 1px;
 }
